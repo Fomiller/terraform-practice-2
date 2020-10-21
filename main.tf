@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     aws = {
-      sourve = "hashicorp/aws"
+      source = "hashicorp/aws"
       version = ">= 3.0"
     }
   }
@@ -49,7 +49,7 @@ resource "aws_s3_bucket" "s3_static" {
 # }
 
 output "fileset-results" {
-  value = fileset("${path.module}/ng-app/dist/ng-app", "**/*.*")
+  value = fileset("${var.upload_directory}", "**/*.*")
 }
 
 # METHOD 3
